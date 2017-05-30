@@ -11,27 +11,21 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by lgd on 2017-05-29.
  */
 
-public class turn_popup extends Dialog {
+public class turn_popup extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        // 뒷배경 블러처리
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        layoutParams.dimAmount = 0.7f;
-        getWindow().setAttributes(layoutParams);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.turn_popup);
 
-
-        // 팝업창이 디스플레이에 맞게 크기 재설정
-
+        TextView textView = (TextView)findViewById(R.id.popuptext);
 
         Button choice = (Button)findViewById(R.id.choice);
         Button cancel = (Button)findViewById(R.id.cancel);
@@ -39,12 +33,20 @@ public class turn_popup extends Dialog {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
             }
         });
     }
-    public turn_popup(@NonNull Context context) {
-        super(context, android.R.style.Theme_Translucent_NoTitleBar);
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        if (event.getAction()==MotionEvent.ACTION_OUTSIDE){
+            return false;
+        }
+        return true;
     }
 
+    @Override
+    public void onBackPressed(){
+        return;
+    }
 }

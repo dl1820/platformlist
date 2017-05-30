@@ -46,19 +46,12 @@ public class turn extends AppCompatActivity {
                 + intent.getExtras().getString("arrivallocation") + "\n"
                 + intent.getExtras().getString("arrivaltime") + "\n");
 
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                popup();
-            }
-        };
 
-        Timer timer = new Timer();
-
-        timer.schedule(timerTask, 1000);
+        Intent popup = new Intent(this, turn_popup.class);
+        startActivity(popup);
     }
 
-    public void popup(){
+    public void onClickList(View v){
         Intent popup = new Intent(this, turn_popup.class);
         startActivity(popup);
     }
