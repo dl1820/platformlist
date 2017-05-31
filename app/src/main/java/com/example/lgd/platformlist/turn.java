@@ -28,6 +28,9 @@ import java.util.logging.Handler;
  */
 
 public class turn extends AppCompatActivity {
+    Button next;
+    Button back;
+    Button main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +49,19 @@ public class turn extends AppCompatActivity {
                 + "도착거리 " + intent.getExtras().getDouble("arrivallocation") + " km\n"
                 + "도착시간 " + intent.getExtras().getInt("arrivaltime") + " 분\n");
 
+        next = (Button)findViewById(R.id.nextbtn);
+        back = (Button)findViewById(R.id.backbtn);
+        main = (Button)findViewById(R.id.mainbtn);
 
         Intent popup = new Intent(this, turn_popup.class);
         startActivity(popup);
+
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 }

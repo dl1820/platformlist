@@ -1,5 +1,6 @@
 package com.example.lgd.platformlist;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -19,12 +20,15 @@ import android.widget.TextView;
  */
 
 public class turn_popup extends AppCompatActivity {
-
+    public static Activity turn_popup;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.turn_popup);
+
+        turn_popup = turn_popup.this;
+
         final Intent intent = getIntent();
         TextView textView = (TextView)findViewById(R.id.popuptext);
 
@@ -43,6 +47,7 @@ public class turn_popup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(intent1);
+                finish();
             }
         });
     }

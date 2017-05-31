@@ -32,14 +32,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/nextbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="다음페이지" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/backbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -47,7 +47,7 @@
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/mainbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
