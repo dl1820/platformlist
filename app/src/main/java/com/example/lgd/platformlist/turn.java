@@ -41,17 +41,12 @@ public class turn extends AppCompatActivity {
         TextView info = (TextView) findViewById(R.id.info);
 
         imageView.setImageResource(R.drawable.draw);
-        info.setText(intent.getExtras().getString("waitcar") + "\n"
-                + intent.getExtras().getString("waittime") + "\n"
-                + intent.getExtras().getString("arrivallocation") + "\n"
-                + intent.getExtras().getString("arrivaltime") + "\n");
+        info.setText( "대기차량 " + intent.getExtras().getInt("waitcar") + " 대\n"
+                + "대기시간 " + intent.getExtras().getInt("waittime") + " 분\n"
+                + "도착거리 " + intent.getExtras().getDouble("arrivallocation") + " km\n"
+                + "도착시간 " + intent.getExtras().getInt("arrivaltime") + " 분\n");
 
 
-        Intent popup = new Intent(this, turn_popup.class);
-        startActivity(popup);
-    }
-
-    public void onClickList(View v){
         Intent popup = new Intent(this, turn_popup.class);
         startActivity(popup);
     }

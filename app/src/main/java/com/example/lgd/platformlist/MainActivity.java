@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         int at[] = {4,6,5,3,9};
 
         for (int i = 0; i < 5; i++){
-            listViewItem = new ListViewItem(R.drawable.draw, "대기차량 " + wc[i] + "대","대기시간 " + wt[i] + "분","도착거리 " + al[i] + "km","도착시간 " + at[i] + "분");
+            listViewItem = new ListViewItem(R.drawable.draw,  wc[i] , wt[i] , al[i] , at[i]);
             lvii.add(listViewItem);
         }
 
@@ -104,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
             // 데이터 반영
             iconImageView.setImageResource(lvi.get(position).iconDrawable);
-            waitcarTextView.setText(lvi.get(position).waitcar);
-            waittimeTextView.setText(lvi.get(position).waittime);
-            arrivallocationTextView.setText(lvi.get(position).arrivallocation);
-            arrivaltimeTextView.setText(lvi.get(position).arrivaltime);
+            waitcarTextView.setText("대기차량 " + lvi.get(position).waitcar + "대");
+            waittimeTextView.setText("대기시간 " + lvi.get(position).waittime + "대");
+            arrivallocationTextView.setText("도착거리 " + lvi.get(position).arrivallocation + "km");
+            arrivaltimeTextView.setText("도착시간 " + lvi.get(position).arrivaltime + "분");
 
             if (layout == R.layout.listview_item){
                 Button button = (Button)convertView.findViewById(R.id.button2);

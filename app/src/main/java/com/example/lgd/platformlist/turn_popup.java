@@ -2,6 +2,7 @@ package com.example.lgd.platformlist;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,16 +25,24 @@ public class turn_popup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.turn_popup);
-
+        final Intent intent = getIntent();
         TextView textView = (TextView)findViewById(R.id.popuptext);
 
         Button choice = (Button)findViewById(R.id.choice);
         Button cancel = (Button)findViewById(R.id.cancel);
+        final Intent intent1 = new Intent(this, realtime.class);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        choice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent1);
             }
         });
     }

@@ -4,16 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:onClick="onClickList"
     android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/popuptext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:text="TextView" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,9 +14,19 @@
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/draw" />
 
+    <TextView
+        android:id="@+id/popuptext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:text="이용순번 : "
+        android:textSize="30dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
@@ -35,7 +36,8 @@
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/popuptext"
             android:layout_weight="1"
-            android:text="선택" />
+            android:text="선택"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/cancel"
@@ -44,7 +46,8 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/popuptext"
             android:layout_weight="1"
-            android:text="취소" />
+            android:text="취소"
+            android:textSize="20dp" />
 
     </LinearLayout>
 

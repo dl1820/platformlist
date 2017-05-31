@@ -16,6 +16,7 @@
         </activity>
         <activity android:name=".turn"/>
         <activity android:name=".turn_popup" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".realtime"/>
     </application>
 
 </manifest>
