@@ -23,10 +23,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Handler;
 
-/**
- * Created by lgd on 2017-05-28.
- */
-
+// 받아온 데이터를 표시
 public class turn extends AppCompatActivity {
     Button next;
     Button back;
