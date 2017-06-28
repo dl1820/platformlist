@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+import android.widget.SlidingDrawer;
 
 /**
  * Created by LGD on 2017-05-31.
@@ -17,8 +18,9 @@ public class realtime extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.realtime);
 
+        Intent intent = getIntent();
 
-
-
+        SlidingDrawer drawer = (SlidingDrawer)findViewById(R.id.sd);
+        drawer.animateClose();
     }
 }
