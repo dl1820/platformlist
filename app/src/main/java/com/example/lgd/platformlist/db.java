@@ -3,16 +3,21 @@ package com.example.lgd.platformlist;
 import java.util.ArrayList;
 import java.util.List;
 
-public class db {
+class db {
+    String wc[] = {"10","5","4","3","2"};
+    String wt[] = {"10","50","30","40","44"};
+    String al[] = {"5.4", "6.7" , "3.2" , "9.0","8.7"};
+    String at[] = {"4","6","5","3","9"};
+    ArrayList list = new ArrayList();
 
-    int wc[] = {10,5,4,3,2};
-    int wt[] = {10,50,30,40,44};
-    double al[] = {5.4 , 6.7 , 3.2 , 9.0, 8.7};
-    int at[] = {4,6,5,3,9};
-
-    void get(){
-
+    public db(){
+        super();
+        list.add(wc);
+        list.add(wt);
+        list.add(al);
+        list.add(at);
     }
+
 }
 
 class data {
