@@ -1,8 +1,11 @@
 package com.example.lgd.platformlist;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.drawable.Drawable;
+import android.os.IBinder;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +31,8 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<ListViewItem> lvii;
+    LocalService service;
+    boolean mBound = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,13 +41,17 @@ public class MainActivity extends AppCompatActivity {
         lvii = new ArrayList<ListViewItem>();
         ListViewItem listViewItem;
 
-        int wc[] = {10,5,4,3,2};
-        int wt[] = {10,50,30,40,44};
-        double al[] = {5.4 , 6.7 , 3.2 , 9.0, 8.7};
-        int at[] = {4,6,5,3,9};
+        String a1[] = {"10","10","5.4","4"};
+        String a2[] = {"5","50","5.7","6"};
+        String a3[] = {"4","30","3.2","5"};
+        String a4[] = {"3","40","9.0","3"};
+        String a5[] = {"2","44","8.7","9"};
+
+        String data[][] = {a1,a2,a3,a4,a5};
 
         for (int i = 0; i < 5; i++){
-            listViewItem = new ListViewItem(R.drawable.draw,  wc[i] , wt[i] , al[i] , at[i]);
+            //String data[] = service.getData(i);
+            listViewItem = new ListViewItem(R.drawable.draw, data[i][0] , data[i][1] , data[i][2], data[i][3]);
             lvii.add(listViewItem);
         }
 
@@ -53,6 +62,36 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        Intent intent = new Intent(this, LocalService.class);
+        bindService(intent, mConnection ,Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        if(mBound){
+            unbindService(mConnection);
+            mBound = false;
+        }
+    }
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        public void onServiceConnected(ComponentName name, IBinder mService) {
+            LocalService.LocalBinder binder = (LocalService.LocalBinder)mService;
+            service = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mBound = false;
+        }
+    };
 
     public class ListViewAdapter extends BaseAdapter {
         // 어뎁터에 추가된 데이터를 저장하기 위해서

@@ -8,12 +8,12 @@ import android.widget.ListView;
  */
 class ListViewItem {
     int iconDrawable;
-    int waitcar;
-    int waittime;
-    double arrivallocation;
-    int arrivaltime;
+    String waitcar;
+    String waittime;
+    String arrivallocation;
+    String arrivaltime;
 
-    ListViewItem(int idb, int wc, int wt, double al, int at){
+    ListViewItem(int idb, String wc, String wt, String al, String at){
         iconDrawable = idb;
         waitcar = wc;
         waittime = wt;
